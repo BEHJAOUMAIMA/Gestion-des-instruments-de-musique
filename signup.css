@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: rgb(195, 151, 194);
+    background-color: rgb(211, 215, 193);
 }
 
 #imgRegister {
@@ -15,7 +15,7 @@ body {
 .row {
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
-    box-shadow: 12px 12px 22px rgb(182, 125, 193);
+    box-shadow: 12px 12px 22px rgb(184, 162, 112);
 }
 
 #logo {
@@ -24,11 +24,18 @@ body {
 
 #btn2:hover {
     background-color: white;
-    border: 3px solid rgb(96, 13, 105);
-    color: rgb(96, 13, 105);
+    border: 3px solid rgb(196, 92, 22);
+    color: rgb(196, 92, 22);
     font-weight: bolder;
 }
 
 #btn2 {
-    background-color: rgb(96, 13, 105);
+    background-color: black;
+    font-weight: bold;
+}
+
+input:hover {
+    background-color: white;
+    border: 3px solid rgb(196, 92, 22);
+    color: rgb(196, 92, 22);
 }

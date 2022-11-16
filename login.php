@@ -17,11 +17,11 @@
         <div class="container mt-5 text-center">
             <div class="row no-gutters">
                 <div class="col-lg-5 d-flex justify-content-center align-items-center">
-                    <img id="imgLogin" src="assets/img/login.jpg" class="img-fluid" alt="">
+                    <img id="imgLogin" src="assets/img/login.jpg" class="img-fluid lg-ms-5" alt="">
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-7">
                     <img id="logo" src="assets/img/logo.png" class="pt-5 pb-2" alt="">
-                    <h4 class="fw-bold text-success py-2">Hello Again !</h4>
+                    <h4 class="fw-bold py-2">Hello Again !</h4>
                     <h6 class="fst-italic text-secondary pb-2">Sign into your account</h6>
                     <form id="login" class="" method="POST" >
                         <div class="form-row d-flex justify-content-center align-items-center">

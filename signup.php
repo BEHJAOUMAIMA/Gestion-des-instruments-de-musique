@@ -1,3 +1,6 @@
+<?php
+  include "./script1.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,32 +16,35 @@
 <section class="form pt-2 mt-4 mx-5">
     <div class="container mt-5 text-center">
         <div class="row no-gutters">
-            <div class="col-lg-7 mt-4">
+            <div class="col-sm-12 col-md-12 col-lg-7 mt-4">
                 <img id="logo" src="assets/img/logo.png" class="mt-3" alt="">
                 <h4 class="fw-bold mt-2">Welcome to Our system !</h4>
                 <h6 class="fst-lighter text-secondary mb-3">Create your account</h6>
-                <form id="register" class="">
+                <form id="register" class="" method="POST">
+                <?php if(!empty($email_exist)){
+                echo $email_exist;
+                }?>
                     <div class="form-row d-flex justify-content-center align-items-center">
                         <div class="col-sm-12 col-md-11 col-lg-7">
-                            <input id="firstname" type="text" placeholder="FirstName" class="form-control my-2 p-2">
+                            <input id="firstname" name="firstname" type="text" placeholder="FirstName" class="form-control my-2 p-2">
                             <div id="errorFirstname" class="form-text text-start"></div>
                         </div>
                     </div>
                     <div class="form-row d-flex justify-content-center align-items-center">
                         <div class="col-sm-12 col-md-11 col-lg-7">
-                            <input id="lastname" type="text" placeholder="LastName" class="form-control my-2 p-2">
+                            <input id="lastname" name="lastname" type="text" placeholder="LastName" class="form-control my-2 p-2">
                             <div id="errorLastname" class="form-text text-start"></div>
                         </div>
                     </div>
                     <div class="form-row d-flex justify-content-center align-items-center">
                         <div class="col-sm-12 col-md-11 col-lg-7">
-                            <input id="email" type="email" placeholder=" Email Adress" class="form-control my-2 p-2">
+                            <input id="email" name="email" type="email" placeholder=" Email Address" class="form-control my-2 p-2">
                             <div id="errorEmail" class="form-text text-start"></div>
                         </div>
                     </div>
                     <div class="form-row d-flex justify-content-center align-items-center">
                         <div class="col-sm-12 col-md-11 col-lg-7">
-                            <input id="password1" type="password" placeholder="Password" class="form-control my-2 p-2">
+                            <input id="password1" name="password1" type="password" placeholder="Password" class="form-control my-2 p-2">
                             <div id="errorPassword1" class="form-text text-start"></div>
                         </div>
                     </div>
@@ -61,7 +67,7 @@
                 </form>
             </div>
             <div class=" d-lg-flex justify-content-center align-items-center d-none d-lg-block col-lg-5 no-gutters">
-                    <img id="imgRegister" src="assets/img/register.jpg" class="img-fluid" alt="">
+                    <img id="imgRegister" src="assets/img/Register.jpg" class="img-fluid lg-me-5" alt="">
             </div>
          </div>
     </div>

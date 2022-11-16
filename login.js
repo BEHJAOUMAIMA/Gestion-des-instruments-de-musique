@@ -7,6 +7,7 @@ const btn = document.getElementById("btn1");
 const regexEmail = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]{2,}$/;
 const regexPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
 
+// Validation avec Regex 
 email.addEventListener('input', (x) => {
     if (!regexEmail.test(email.value)) {
         email.classList.add("is-invalid");
@@ -21,18 +22,18 @@ email.addEventListener('input', (x) => {
 })
 
 password.addEventListener('input', (x) => {
-    if (!regexPassword.test(password.value)) {
-        password.classList.add("is-invalid");
-        errorPassword.innerText = "At least one upper case English letter,one lower case English letter,one digit,one special character or space";
-        btn.setAttribute("disabled", "disabled");
-    } else {
-        password.classList.remove("is-invalid");
-        password.classList.add("is-valid");
-        errorPassword.innerText = "";
-        btn.removeAttribute("disabled");
-    }
-})
-
+        if (!regexPassword.test(password.value)) {
+            password.classList.add("is-invalid");
+            errorPassword.innerText = "At least one upper case English letter,one lower case English letter,one digit,one special character or space";
+            btn.setAttribute("disabled", "disabled");
+        } else {
+            password.classList.remove("is-invalid");
+            password.classList.add("is-valid");
+            errorPassword.innerText = "";
+            btn.removeAttribute("disabled");
+        }
+    })
+    // validation normale
 form.addEventListener("submit", (e) => {
     var index = 0;
     if (email.value === "" || email.value == null) {
