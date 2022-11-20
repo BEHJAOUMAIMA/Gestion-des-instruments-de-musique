@@ -43,7 +43,7 @@
                         </div>
                         <a class="text-decoration-none" href="#">Forgot password ?</a>
                         <p>Don't have an account ?
-                            <a class="text-decoration-none pb-2" href="#"> Register Here</a>
+                            <a class="text-decoration-none pb-2" href="./signup.php"> Register Here</a>
                         </p>
                     </form>
                 </div>

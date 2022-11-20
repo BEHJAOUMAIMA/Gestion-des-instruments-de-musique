@@ -63,7 +63,7 @@
                             <button id="btn2" name="register" type="submit" class="btn btn-dark w-100 mt-3 p-2">Create Account</button>
                         </div>
                     </div>
-                    <p class="text-center text-muted mt-2 mb-4 p-2">Have already an account? <a href="#" class="fw-bold text-body text-decoration-none">Login here</a></p>
+                    <p class="text-center text-muted mt-2 mb-4 p-2">Have already an account? <a href="./login.php" class="fw-bold text-body text-decoration-none">Login here</a></p>
                 </form>
             </div>
             <div class=" d-lg-flex justify-content-center align-items-center d-none d-lg-block col-lg-5 no-gutters">

@@ -52,72 +52,73 @@
                 </ul>
             </div>
         </div> -->
-        <div class="col">
-                <nav class="navbar navbar-expand-lg navbar-light bg-white d-flex justify-content-between">
-                    <div class="container-fluid">
-                        <div class="d-flex justify-content-center">
-                            <ul class="navbar-nav mb-2 mb-lg-0">
-                                <a class="navbar-brand ms-3" href="#">Rock Stars</a>
-                                <button class="btn px-1 py-0 open-btn"><i class="fas fa-stream"></i></button>
-                                </div>
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
-                                <li class="nav-item list-unstyled">
-                                    <a class="nav-link" aria-current="page" href="./dash.php">Dashboard</a>
-                                </li>
-                                <li class="nav-item list-unstyled">
-                                    <a class="nav-link" aria-current="page" href="./analytics.php">Analytics</a>
-                                </li>
-                                <li class="nav-item list-unstyled">
-                                    <a class="nav-link" aria-current="page" href="#">Instruments</a>
-                                </li>
-                                <li class="nav-item list-unstyled">
-                                    <a class="nav-link" aria-current="page" href="#">Settings</a>
-                                </li>
-                                <li class="nav-item dropdown list-unstyled me-5">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Nom Prénom
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-        </div>
-        <div>
-
+        
+        <nav class="navbar container navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img class="w-25" src="assets/img/logo.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " style="justify-content:end ;" id="navbarNavDropdown">
+                    <ul class="navbar-nav" style=" margin-right: 0;">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Stats</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Insturments</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">logout</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+  
+<!-- Button trigger modal -->
+<div class="d-flex justify-content-end container">
+    <button type="button" class="btn btn-primary my-4 px-4 py-3 text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class='bx bx-plus me-1'></i> Add a new musical instrument</button>
 </div>
 <section class=" mx-2 my-4 p-4">
-            <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary my-4 px-4 py-3 text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-<i class='bx bx-plus me-1'></i> Add a new musical instrument</button>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <form method="post" action="crud.php" >
+    
+ 
+<div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Musical Instrument</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+
       <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Instrument Name</label>
   <input type="text" class="form-control" name="instrument_name" id="instrument_name">
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Category</label>
-    <select class="form-select mb-3" aria-label="Default select example">
-        <option selected>Select</option>
-        <option value="1">Bois</option>
-        <option value="2">Claviers</option>
-        <option value="3">Cordes</option>
-        <option value="3">Cuivres</option>
-        <option value="3">Percussions</option>
+    <select class="form-select mb-3" name="instrument_category" aria-label="Default select example">
+        <option selected>Please Select</option>
+        <option value="5">Bois</option>
+        <option value="6">Claviers</option>
+        <option value="7">Cordes</option>
+        <option value="8">Cuivres</option>
+        <option value="9">Percussions</option>
     </select>
     <div class="mb-3">
         <label for="exampleFormControlInput2" class="form-label">Price</label>
@@ -135,21 +136,24 @@
 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add</button>
+        <button type="submit" name="add_btn" class="btn btn-primary">Add</button>
       </div>
     </div>
   </div>
+  </form>
 </div>
+    <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
         <div class="col mb-3">
             <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+            
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 </body>
