@@ -1,3 +1,6 @@
+<?php
+include 'crud.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,76 +16,77 @@
     <title>Analytics</title>
 </head>
 <body>
-<div class="col">
-                <nav class="navbar navbar-expand-lg navbar-light bg-white d-flex justify-content-between">
-                    <div class="container-fluid">
-                        <div class="d-flex justify-content-center">
-                            <ul class="navbar-nav mb-2 mb-lg-0">
-                                <a class="navbar-brand ms-3" href="#">Rock Stars</a>
-                                <button class="btn px-1 py-0 open-btn"><i class="fas fa-stream"></i></button>
-                                </div>
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
-                                <li class="nav-item list-unstyled">
-                                    <a class="nav-link" aria-current="page" href="./dash.php">Dashboard</a>
-                                </li>
-                                <li class="nav-item list-unstyled">
-                                    <a class="nav-link active" aria-current="page" href="./analytics.php">Analytics</a>
-                                </li>
-                                <li class="nav-item list-unstyled">
-                                    <a class="nav-link" aria-current="page" href="#">Instruments</a>
-                                </li>
-                                <li class="nav-item list-unstyled">
-                                    <a class="nav-link" aria-current="page" href="#">Settings</a>
-                                </li>
-                                <li class="nav-item dropdown list-unstyled me-5">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Nom Prénom
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+<nav class="navbar container navbar-expand-lg bg-white mb-5 pb-5">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img class="w-25" src="assets/img/logo.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " style="justify-content:end ;" id="navbarNavDropdown">
+                    <ul class="navbar-nav" style=" margin-right: 0;">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./dash.php">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="./analytics.php">Statistics</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Insturments</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">logout</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mb-5">
+    <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card mb-4" style="background: linear-gradient(90deg, rgba(152,145,132,1) 0%, rgba(16,70,98,1) 100%);">
+        <div class="card-body">
+            <h6 class="card-title mb-4 fs-6 fw-bold text-white">Instruments Musicales</h6>
+            <p class="card-text text-end fs-6 fw-semibold text-white"><?php echo statistics("category_instrument").'  Categories'; ?></p>
         </div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 lg-4 mx-4 py-5 my-5">
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+        </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a short card.</p>
-      </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card mb-4"style="background: linear-gradient(90deg, rgba(152,145,132,1) 0%, rgba(16,70,98,1) 100%);">
+        <div class="card-body">
+            <h6 class="card-title mb-4 fs-6 fw-bold text-white">Etat Stock</h6>
+            <p class="card-text text-end fs-6 fw-semibold text-white"><?php echo statistics("stock").' Instruments'; ?></p>
+        </div>
+        </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card mb-4" style="background: linear-gradient(90deg, rgba(152,145,132,1) 0%, rgba(16,70,98,1) 100%);">
+        <div class="card-body">
+            <h6 class="card-title mb-4 fs-6 fw-bold text-white">Prix Maximum</h6>
+            <p class="card-text text-end fs-6 fw-semibold text-white"><?php echo statistics("price").' MAD'; ?></p>
+        </div>
+        </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card mb-4" style="background: linear-gradient(90deg, rgba(152,145,132,1) 0%, rgba(16,70,98,1) 100%);">
+        <div class="card-body">
+            <h6 class="card-title mb-4 fs-6 fw-bold text-white">Utilisateurs</h6>
+            <p class="card-text text-end fs-6 fw-semibold text-white"><?php echo statistics("users").' Users'; ?></p>
+        </div>
+        </div>
     </div>
-  </div>
+    </div>
 </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 

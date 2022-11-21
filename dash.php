@@ -1,5 +1,6 @@
 <?php
     $page = $_SERVER['REQUEST_URI'];
+    include 'crud.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,11 +15,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="dash.css" />
+    <link rel="stylesheet" href="dash.css"/>
     <title>DashBoard</title>
 </head>
 
-<body class="bg-light">
+<body class="bg-white">
     <!-- <div class="main-container d-flex">
         <div class="sidebar col-3" id="side-nav">
             <div class="content">
@@ -53,7 +54,7 @@
             </div>
         </div> -->
         
-        <nav class="navbar container navbar-expand-lg bg-light">
+        <nav class="navbar container navbar-expand-lg bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img class="w-25" src="assets/img/logo.png" alt="">
@@ -64,10 +65,10 @@
                 <div class="collapse navbar-collapse " style="justify-content:end ;" id="navbarNavDropdown">
                     <ul class="navbar-nav" style=" margin-right: 0;">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                        <a class="nav-link active" aria-current="page" href="./dash.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Stats</a>
+                        <a class="nav-link" href="./analytics.php">Statistics</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="#">Insturments</a>
@@ -86,18 +87,59 @@
                 </div>
             </div>
         </nav>
-  
+  <?php if (isset($_SESSION["message"] )) :?>
+  <div class="alert alert-success container" role="alert">
+  <?php
+  echo $_SESSION["message"];
+  unset($_SESSION["message"]);  
+  ?>
+</div>
+<?php endif ?>
 <!-- Button trigger modal -->
 <div class="d-flex justify-content-end container">
-    <button type="button" class="btn btn-primary my-4 px-4 py-3 text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button onclick="add()" type="button" class="btn btn-dark fs-semibold my-4 px-4 py-3 text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <i class='bx bx-plus me-1'></i> Add a new musical instrument</button>
 </div>
-<section class=" mx-2 my-4 p-4">
+<section class=" mx-2 my-3 ">
+<div class="container mb-5">
+    <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card mb-4" style="background: linear-gradient(90deg, rgba(152,145,132,1) 0%, rgba(16,70,98,1) 100%);">
+        <div class="card-body">
+            <h6 class="card-title mb-4 fs-6 fw-bold text-white">Instruments Musicales</h6>
+            <p class="card-text text-end fs-6 fw-semibold text-white"><?php echo statistics("category_instrument").'  Categories'; ?></p>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card mb-4"style="background: linear-gradient(90deg, rgba(152,145,132,1) 0%, rgba(16,70,98,1) 100%);">
+        <div class="card-body">
+            <h6 class="card-title mb-4 fs-6 fw-bold text-white">Etat Stock</h6>
+            <p class="card-text text-end fs-6 fw-semibold text-white"><?php echo statistics("stock").' Instruments'; ?></p>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card mb-4" style="background: linear-gradient(90deg, rgba(152,145,132,1) 0%, rgba(16,70,98,1) 100%);">
+        <div class="card-body">
+            <h6 class="card-title mb-4 fs-6 fw-bold text-white">Prix Maximum</h6>
+            <p class="card-text text-end fs-6 fw-semibold text-white"><?php echo statistics("price").' MAD'; ?></p>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card mb-4" style="background: linear-gradient(90deg, rgba(152,145,132,1) 0%, rgba(16,70,98,1) 100%);">
+        <div class="card-body">
+            <h6 class="card-title mb-4 fs-6 fw-bold text-white">Utilisateurs</h6>
+            <p class="card-text text-end fs-6 fw-semibold text-white"><?php echo statistics("users").' Users'; ?></p>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <form method="post" action="crud.php" >
-    
- 
+  <form id="form" method="post" action="crud.php" >
 <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -105,14 +147,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-
+        <input type="hidden" value="" id="hideId" name="hideId">
       <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Instrument Name</label>
   <input type="text" class="form-control" name="instrument_name" id="instrument_name">
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Category</label>
-    <select class="form-select mb-3" name="instrument_category" aria-label="Default select example">
+    <select class="form-select mb-3" id="instrument_category" name="instrument_category" aria-label="Default select example">
         <option selected>Please Select</option>
         <option value="5">Bois</option>
         <option value="6">Claviers</option>
@@ -135,8 +177,14 @@
 </div>     
 </div>
       <div class="modal-footer">
+   
+        <button type="submit" name="add_btn" id="add_btn" class="btn btn-dark">Add</button>
+        <div class="d-flex" >
+            <button  type="submit" name="edit_btn" id="edit_btn" class="btn btn-success me-3">Update</button>
+            <button type="submit" name="delete_btn" id="delete_btn" class="btn btn-danger">Delete</button>
+        </div>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" name="add_btn" class="btn btn-primary">Add</button>
+
       </div>
     </div>
   </div>
@@ -144,19 +192,30 @@
 </div>
     <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-        <div class="col mb-3">
-            <div class="card">
-            
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            </div>
-        </div>
+        <?php
+            $data = show();
+            while($row = mysqli_fetch_assoc($data)){
+                echo "
+                    <div class='col mb-3'>
+                        <div class='card' style='height : 300px'>
+                            <button id='{$row['id_instrument']}' onclick='edit({$row['id_instrument']})' data-name='{$row['name_instrument']}' data-category='{$row['category_instrument']}' data-price='{$row['price_instrument']}' data-quantite='{$row['quantite']}' data-description='{$row['description']}'
+                             class='card-body rounded text-center bg-white' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                                <h6 class='card-title mb-4'>Instrument : {$row['name_instrument']}</h6>
+                                <p class='card-text'>Category : {$row['category_name']}</p>
+                                <p class='card-text'>Price : {$row['price_instrument']} MAD</p>
+                                <p class='card-text'> Quantite : {$row['quantite']}</p>
+                                <p class='card-text text-truncate'>{$row['description']}</p>
+                            </button>
+                        </div>
+                    </div>
+                ";
+            }?>
+        
     </div>
     </div>
 </section>
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 

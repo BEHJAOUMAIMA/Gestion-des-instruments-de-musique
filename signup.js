@@ -9,14 +9,7 @@ const errorLastname = document.getElementById("errorLastname");
 const errorEmail = document.getElementById("errorEmail");
 const errorPassword = document.getElementById("errorPassword1");
 const errorPasswordConfirmed = document.getElementById("errorPassword2");
-console.log(firstname);
-console.log(lastname);
-console.log(email);
-console.log(password);
-console.log(passwordConfirmed);
-console.log(form);
-console.log(errorFirstname);
-console.log(errorLastname);
+
 form.addEventListener("submit", (e) => {
     var index = 0;
     if (firstname.value === "" || firstname.value == null) {
