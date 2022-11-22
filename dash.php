@@ -27,21 +27,18 @@
         <nav class="navbar container navbar-expand-lg bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img class="w-25" src="assets/img/logo.png" alt="">
+                    <img class="" src="assets/img/logo.png" alt="" style="width:170px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " style="justify-content:end ;" id="navbarNavDropdown">
                     <ul class="navbar-nav" style=" margin-right: 0;">
-                        <li class="nav-item">
+                        <li class="nav-item" style="margin-right: 20px; font-weight: bold; font-size:large;">
                         <a class="nav-link active" aria-current="page" href="./dash.php">Dashboard</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Insturments</a>
-                        </li>
                         <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo $_SESSION['user']['Firstname'].' '.$_SESSION['user']['Lastname']?>
                         </a>
                         <ul class="dropdown-menu">
@@ -119,12 +116,12 @@
         <input type="hidden" value="" id="hideId" name="hideId">
       <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Nom d'Instrument</label>
-  <input type="text" class="form-control" name="instrument_name" id="instrument_name">
+  <input type="text" class="form-control" name="instrument_name" id="instrument_name" required>
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Catégorie</label>
-    <select class="form-select mb-3" id="instrument_category" name="instrument_category" aria-label="Default select example">
-        <option selected>Séléctionner</option>
+    <select class="form-select mb-3" id="instrument_category" name="instrument_category" aria-label="Default select example" required>
+        <option value="">Séléctionner</option>
         <option value="5">Bois</option>
         <option value="6">Claviers</option>
         <option value="7">Cordes</option>
@@ -133,11 +130,11 @@
     </select>
     <div class="mb-3">
         <label for="exampleFormControlInput2" class="form-label">Prix</label>
-        <input type="number" class="form-control" name="instrument_price" id="instrument_price">
+        <input type="number" class="form-control" name="instrument_price" id="instrument_price " required>
     </div>
     <div class="mb-3">
         <label for="exampleFormControlInput3" class="form-label">Quantité</label>
-        <input type="number" class="form-control" name="instrument_quantite" id="instrument_quantite">
+        <input type="number" class="form-control" name="instrument_quantite" id="instrument_quantite" required>
     </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea2" class="form-label">Description</label>
