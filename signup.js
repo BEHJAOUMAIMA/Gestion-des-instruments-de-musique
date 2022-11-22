@@ -9,6 +9,35 @@ const errorLastname = document.getElementById("errorLastname");
 const errorEmail = document.getElementById("errorEmail");
 const errorPassword = document.getElementById("errorPassword1");
 const errorPasswordConfirmed = document.getElementById("errorPassword2");
+const btn = document.getElementById("btn2");
+const regexEmail = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]{2,}$/;
+const regexPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+// Validation avec Regex 
+email.addEventListener('input', (x) => {
+    if (!regexEmail.test(email.value)) {
+        email.classList.add("is-invalid");
+        errorEmail.innerText = "the valid format should be like exemple@gmail.com";
+        btn.setAttribute("disabled", "disabled");
+    } else {
+        email.classList.remove("is-invalid");
+        email.classList.add("is-valid");
+        errorEmail.innerText = "";
+        btn.removeAttribute("disabled");
+    }
+})
+
+password.addEventListener('input', (x) => {
+    if (!regexPassword.test(password.value)) {
+        password.classList.add("is-invalid");
+        errorPassword.innerText = "the password must contain at least 8 characters(an uppercase letter,a lowercase letter, numbers & special characters)";
+        btn.setAttribute("disabled", "disabled");
+    } else {
+        password.classList.remove("is-invalid");
+        password.classList.add("is-valid");
+        errorPassword.innerText = "";
+        btn.removeAttribute("disabled");
+    }
+})
 
 form.addEventListener("submit", (e) => {
     var index = 0;

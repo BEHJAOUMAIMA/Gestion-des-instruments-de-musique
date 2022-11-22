@@ -16,7 +16,7 @@ include "./script1.php"
 </head>
 
 <body>
-    <section class="form pt-2 mt-5 mx-5">
+    <section class="form pt-2 mt-3 mx-5">
     
         <div class="container mt-5 text-center">
             <div class="row no-gutters">

@@ -1,5 +1,10 @@
 <?php
-    include 'crud.php';
+ 
+    include './script1.php';
+    include './crud.php';
+    if(!isset($_SESSION['user'])) {
+        header('location: login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

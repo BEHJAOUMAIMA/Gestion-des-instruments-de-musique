@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "./database.php";
 // register
 if(isset($_POST['register'])){
@@ -40,7 +41,7 @@ if(isset($_POST['register'])){
     // die;
     $password = $_POST['password'];
     $pass_verify= password_verify($password,$result['Password']);
-    $_SESSION['user'] = $result; 
+    $_SESSION['user'] = $result;
     header('location: dash.php');
 
   }

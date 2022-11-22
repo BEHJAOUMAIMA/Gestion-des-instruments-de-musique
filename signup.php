@@ -21,9 +21,7 @@
                 <h4 class="fw-bold mt-2">Welcome to Our system !</h4>
                 <h6 class="fst-lighter text-secondary mb-3">Create your account</h6>
                 <form id="register" class="" method="POST">
-                <?php if(!empty($email_exist)){
-                echo $email_exist;
-                }?>
+                <?php if(!empty($email_exist)){echo $email_exist;}?>
                     <div class="form-row d-flex justify-content-center align-items-center">
                         <div class="col-sm-12 col-md-11 col-lg-7">
                             <input id="firstname" name="firstname" type="text" placeholder="FirstName" class="form-control my-2 p-2">
@@ -38,7 +36,7 @@
                     </div>
                     <div class="form-row d-flex justify-content-center align-items-center">
                         <div class="col-sm-12 col-md-11 col-lg-7">
-                            <input id="email" name="email" type="email" placeholder=" Email Address" class="form-control my-2 p-2">
+                            <input id="email" name="email" type="email" placeholder=" Email Address" class="form-control my-2 p-2 shadow-none">
                             <div id="errorEmail" class="form-text text-start"></div>
                         </div>
                     </div>
