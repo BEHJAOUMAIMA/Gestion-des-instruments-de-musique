@@ -1,3 +1,6 @@
+<?php 
+include "./script1.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +17,7 @@
 
 <body>
     <section class="form pt-2 mt-5 mx-5">
+    
         <div class="container mt-5 text-center">
             <div class="row no-gutters">
                 <div class="col-lg-5 d-flex justify-content-center align-items-center">
@@ -23,16 +27,24 @@
                     <img id="logo" src="assets/img/logo.png" class="pt-5 pb-2" alt="">
                     <h4 class="fw-bold py-2">Hello Again !</h4>
                     <h6 class="fst-italic text-secondary pb-2">Sign into your account</h6>
-                    <form id="login" class="" method="POST" >
+                    <form id="login" class="" method="POST" action="./script1.php" >
+                    <?php if (isset($_SESSION["message"] )) :?>
+                            <div class="alert alert-success container" role="alert">
+                            <?php
+                            echo $_SESSION["message"];
+                            unset($_SESSION["message"]);  
+                            ?>
+                            </div>
+                            <?php endif ?>
                         <div class="form-row d-flex justify-content-center align-items-center">
                             <div class="col-sm-12 col-md-11 col-lg-7">
-                                <input id="email" type="email" placeholder=" Email Adress" class="form-control my-3 p-3">
+                                <input id="email" name="email" type="email" placeholder=" Email Adress" class="form-control my-3 p-3">
                                 <div id="errorEmail" class="form-text text-start text-danger"></div>
                             </div>
                         </div>
                         <div class="form-row d-flex justify-content-center align-items-center">
                             <div class="col-sm-12 col-md-11 col-lg-7">
-                                <input id="password" type="password" placeholder="Password" class="form-control my-3 p-3">
+                                <input id="password" name="password" type="password" placeholder="Password" class="form-control my-3 p-3">
                                 <div id="errorPassword" class="form-text text-start text-danger"></div>
                             </div>
                         </div>

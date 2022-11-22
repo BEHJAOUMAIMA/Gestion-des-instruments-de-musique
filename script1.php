@@ -6,7 +6,7 @@ if(isset($_POST['register'])){
     $lastName = $_POST['lastname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $password_hash = password_hash($password, PASSWORD_BCRYPT);
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
   
     // check if email already exist
     $email_check = mysqli_query($connexion, "SELECT * FROM users WHERE Email = '{$email}' ");
@@ -26,4 +26,28 @@ if(isset($_POST['register'])){
           header('location: login.php');
     }
   }
+  //login
+  if(isset($_POST['login'])){
+    // check email already exist
+  $email=$_POST['email'];
+  $email_check = mysqli_query($connexion,"SELECT * FROM users WHERE Email = '$email'");
+  $result = mysqli_fetch_assoc($email_check);
+  if (!isset($result)) {
+    $_SESSION['message'] = "Email doesn't Exist !";
+    header('location: login.php');
+  }else{
+    // var_dump($result);
+    // die;
+    $password = $_POST['password'];
+    $pass_verify= password_verify($password,$result['Password']);
+    $_SESSION['user'] = $result; 
+    header('location: dash.php');
 
+  }
+  }
+ //logout Session :
+
+ if(isset($_GET['logout'])){
+  session_destroy();
+  header('location: login.php');
+}
