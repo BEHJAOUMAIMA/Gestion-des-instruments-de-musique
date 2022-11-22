@@ -16,5 +16,4 @@ function edit(id) {
     document.getElementById('instrument_quantite').value = document.getElementById(id).getAttribute("data-quantite");
     document.getElementById('instrument_description').value = document.getElementById(id).getAttribute("data-description");
     document.getElementById('hideId').value = id;
-
 }

@@ -130,7 +130,7 @@
     </select>
     <div class="mb-3">
         <label for="exampleFormControlInput2" class="form-label">Prix</label>
-        <input type="number" class="form-control" name="instrument_price" id="instrument_price " required>
+        <input type="number" class="form-control" name="instrument_price" id="instrument_price"  required>
     </div>
     <div class="mb-3">
         <label for="exampleFormControlInput3" class="form-label">Quantité</label>

@@ -48,7 +48,7 @@ form.addEventListener("submit", (e) => {
     } else {
         firstname.classList.remove("is-invalid")
         firstname.classList.add("is-valid");
-        errorFirstname.innerHTML = "Looks Good !";
+        // errorFirstname.innerHTML = "Looks Good !";
     }
     if (lastname.value === "" || lastname.value == null) {
         index++;
@@ -57,7 +57,7 @@ form.addEventListener("submit", (e) => {
     } else {
         lastname.classList.remove("is-invalid")
         lastname.classList.add("is-valid");
-        errorLastname.innerHTML = "Looks Good !";
+        // errorLastname.innerHTML = "Looks Good !";
     }
     if (email.value === "" || email.value == null) {
         index++;
@@ -66,7 +66,7 @@ form.addEventListener("submit", (e) => {
     } else {
         email.classList.remove("is-invalid")
         email.classList.add("is-valid");
-        errorEmail.innerHTML = "Looks Good !";
+        // errorEmail.innerHTML = "Looks Good !";
     }
 
     if (password.value === "" || password.value == null) {
@@ -76,7 +76,7 @@ form.addEventListener("submit", (e) => {
     } else {
         password.classList.remove("is-invalid")
         password.classList.add("is-valid");
-        errorPassword.innerHTML = "Looks Good !";
+        // errorPassword.innerHTML = "Looks Good !";
     }
     if ((passwordConfirmed.value === "" || passwordConfirmed.value == null) || passwordConfirmed.value !== password.value) {
         index++;
@@ -85,7 +85,7 @@ form.addEventListener("submit", (e) => {
     } else {
         passwordConfirmed.classList.remove("is-invalid")
         passwordConfirmed.classList.add("is-valid");
-        errorPasswordConfirmed.innerHTML = "Looks Good !";
+        // errorPasswordConfirmed.innerHTML = "Looks Good !";
     }
     if (index > 0) {
         e.preventDefault();

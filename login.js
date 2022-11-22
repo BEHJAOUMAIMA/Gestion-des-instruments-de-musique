@@ -43,7 +43,7 @@ form.addEventListener("submit", (e) => {
     } else {
         email.classList.remove("is-invalid");
         email.classList.add("is-valid");
-        errorEmail.innerHTML = "Looks Good !";
+        // errorEmail.innerHTML = "Looks Good !";
     }
 
     if (password.value === "" || password.value == null) {
@@ -53,7 +53,7 @@ form.addEventListener("submit", (e) => {
     } else {
         password.classList.remove("is-invalid");
         password.classList.add("is-valid");
-        errorPassword.innerHTML = "Looks Good !";
+        // errorPassword.innerHTML = "Looks Good !";
     }
     if (index > 0) {
         e.preventDefault();
